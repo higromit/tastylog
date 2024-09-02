@@ -1,2 +1,0 @@
-# tastylog
-demo for tastylog
