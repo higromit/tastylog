@@ -15,11 +15,6 @@ public class YoutubeRecipeController {
     private YoutubeRecipeService youtubeRecipeService;
 
     @Tag(name = "유튜브 레시피 가져오기 API",description = "유튜브의 레시피를 OPENAI를 통해 요약해서 가져오는 API입니다.")
-    @GetMapping("/crawlSave")
-    public Recipe crawlAndSaveRecipe(@RequestParam Long memberId, @RequestParam String url){
-        return  youtubeRecipeService.crawlAndSaveRecipe(memberId,url);
-    }
-
     @GetMapping("/extractYoutube")
     public Recipe extractYoutubeRecipe(@RequestParam Long memberId, @RequestParam String url){
         return youtubeRecipeService.extractYoutubeRecipe(memberId, url);

@@ -36,51 +36,6 @@ public class YoutubeRecipeServiceImpl implements YoutubeRecipeService {
     private CategoryRepository categoryRepository;
 
 
-    @Override
-    public Recipe crawlAndSaveRecipe(Long memberId, String url) {
-
-        Recipe recipe = new Recipe();
-
-        // YouTube URL에서 제목, 설명 등을 가져오기 위한 크롤링 로직
-        try {
-            Member member = memberRepository.findById(memberId)
-                    .orElseThrow(()-> new RuntimeException("Member not found"));
-            recipe.setMember(member);
-
-            Category defaultCategory = categoryRepository.findByCategoryName("디폴트")
-                    .orElseGet(() -> {
-                        Category newCategory = new Category();
-                        newCategory.setCategoryName("디폴트");
-
-                        return categoryRepository.save(newCategory);
-                    });
-
-            recipe.setCategory(defaultCategory);
-
-
-
-            // 유튜브 메타데이터 추출 (제목, 설명 등)
-            Document doc = Jsoup.connect(url).get();
-            String title = doc.title();
-            String content = doc.select("meta[name=description]").attr("content");
-
-            recipe.setRecipeTitle(title);
-            recipe.setUrl(url);
-            recipe.setRecipeContent(content);
-
-            // 여기서 PyTube나 다른 라이브러리를 사용해 자막을 추출하거나, YouTube Transcript API를 호출
-            String transcriptJson = getTranscriptFromYoutube(url);
-
-            // JSON 데이터를 Recipe에 맞게 파싱하여 자막 및 요리 단계를 추가
-            List<RecipeStep> steps = parseTranscriptToRecipeSteps(transcriptJson);
-            recipe.setSteps(steps);
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        return recipeRepository.save(recipe);
-    }
 
     @Override
     public Recipe extractYoutubeRecipe(Long memberId, String url) {
