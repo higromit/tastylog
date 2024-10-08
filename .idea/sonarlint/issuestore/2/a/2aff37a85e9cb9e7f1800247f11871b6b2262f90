@@ -1,0 +1,8 @@
+
+{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Èùå¼ûÿÿÿÿ8ëëØ›2
+_
+java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞ8£ëëØ›2
+Z
+java:S1128"=Remove this unused import 'io.swagger.v3.oas.models.OpenAPI'.(±8¨ëëØ›2
+a
+java:S1128	"?Remove this unused import 'io.swagger.v3.oas.models.info.Info'.(­íÂâûÿÿÿÿ8¨ëëØ›2

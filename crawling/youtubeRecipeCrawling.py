@@ -6,6 +6,7 @@ from youtube_transcript_api import YouTubeTranscriptApi
 from urllib.parse import urlparse, parse_qs
 import yt_dlp
 import json
+import sys
 
 load_dotenv()
 
@@ -142,17 +143,17 @@ def extract_title(youtube_url):
             return "제목을 가져오는 데 실패했습니다."
 
 def extract_recipe_details(json_data):
-    recipe_name = json_data.get('recipe_name', 'Unknown')
+    recipeTitle = json_data.get('recipeTitle', 'Unknown')
     url = json_data.get('url', 'Unknown')
     subtitles = json_data.get('subtitles', [])
-    return recipe_name, url, subtitles
+    return recipeTitle, url, subtitles
 
-def summarize_recipe(recipe_name, url, subtitles):
+def summarize_recipe(recipeTitle, url, subtitles):
     subtitles_text = '\n'.join([f"{i+1}단계({subtitle['start']}-{subtitle['end']}) : {subtitle['text']}" for i, subtitle in enumerate(subtitles)])
 
     messages = [
         {"role": "system", "content": "당신은 요리 레시피를 요약하는 도우미입니다."},
-        {"role": "user", "content": (f"레시피명: {recipe_name}\n"
+        {"role": "user", "content": (f"레시피명: {recipeTitle}\n"
                                      f"URL: {url}\n"
                                      f"자막:\n{subtitles_text}\n"
                                      "위 정보를 바탕으로 요리 레시피를 요약해 주세요. 형식은 다음과 같습니다:\n"
@@ -187,7 +188,11 @@ def summarize_recipe(recipe_name, url, subtitles):
         raise Exception(f"OpenAI API 요청 실패: {response.status_code} - {response.text}")
 
 def main():
-    youtube_url = input("YouTube 동영상 URL을 입력하세요: ").strip()
+    if len(sys.argv) < 2:
+        print("Usage: python youtubeRecipeCrawling.py <YouTube URL>")
+        return
+
+    youtube_url = sys.argv[1]
     title = extract_title(youtube_url)
     transcript_json, used_lang = get_transcript(youtube_url, lang_code='ko')
     description = extract_description(youtube_url)
@@ -197,7 +202,7 @@ def main():
         return
 
     youtube_data = {
-        'recipe_name': title,
+        'recipeTitle': title,
         'url': youtube_url,
         'description': description,
         'subtitles': transcript_json

@@ -1,0 +1,28 @@
+
+g	java:S112"FDefine and throw a dedicated exception instead of using a generic one.(…„Òşÿÿÿÿ8àÕ—Ù¦2
+h	java:S112³"FDefine and throw a dedicated exception instead of using a generic one.(–ÇÖÉıÿÿÿÿ8áÕ—Ù¦2
+h	java:S112¶"FDefine and throw a dedicated exception instead of using a generic one.(“ş¯ûÿÿÿÿ8áÕ—Ù¦2
+v	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(®±æÚ8À¯Ù¦2
+_
+java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞ8°Ù¦2
+_
+java:S6813 "BRemove this field injection and use constructor injection instead.(êæÄŞ8°Ù¦2
+_
+java:S6813#"BRemove this field injection and use constructor injection instead.(êæÄŞ8°Ù¦2
+o
+java:S3776V"RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.(¬ ‰ò8ÛÖ—Ù¦2
+M
+java:S1481n"+Remove this unused "reader" local variable.(Ø±ÕÉûÿÿÿÿ8ßÖ—Ù¦2
+G	java:S106u"+Replace this use of System.err by a logger.(µúŠñ8áÖ—Ù¦2
+T
+java:S1481"7Remove this unused "currentStepContent" local variable.(¹ñs8ãÖ—Ù¦2
+z
+java:S5854"WUse the CANON_EQ flag with "Pattern.compile(regex, CANON_EQ).matcher(input).matches()".(ÊÂ£Óúÿÿÿÿ8åÖ—Ù¦2
+r
+java:S5850 "TGroup parts of the regex together to make the intended operator precedence explicit.(Ø°ú°8İ§Ù¦2
+\
+java:S3400½"9Remove this method and declare a constant for this value.(Ö§”Óşÿÿÿÿ8³°Ù¦2
+T
+java:S1172¼"1Remove this unused method parameter "youtubeUrl".(û‘â‚ùÿÿÿÿ8´°Ù¦2
+S
+java:S1172À"5Remove this unused method parameter "transcriptJson".(„äô˜8´°Ù¦2

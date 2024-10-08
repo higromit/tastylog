@@ -1,4 +1,6 @@
 
-Tpython:S5754,"<Specify an exception class to catch or reraise the exception(à …∑
-Tpython:S112j">Replace this generic exception class with a more specific one.(Û–õ4
-Upython:S112ª">Replace this generic exception class with a more specific one.(Û–õ4
+[python:S5754-"<Specify an exception class to catch or reraise the exception(à …∑8Ü‚Å¥¶2
+[python:S112k">Replace this generic exception class with a more specific one.(Û–õ48Ü‚Å¥¶2
+Äpython:S117í"\Rename this local variable "recipeTitle" to match the regular expression ^[_a-z][a-z0-9_]*$.(íÀÁ¢˘ˇˇˇˇ8Ü‚Å¥¶2
+{python:S117ó"WRename this parameter "recipeTitle" to match the regular expression ^[_a-z][a-z0-9_]*$.(øí⁄Ÿ¸ˇˇˇˇ8Ü‚Å¥¶2
+\python:S112º">Replace this generic exception class with a more specific one.(Û–õ48á‚Å¥¶2

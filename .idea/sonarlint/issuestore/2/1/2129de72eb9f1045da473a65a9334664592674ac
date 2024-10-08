@@ -1,0 +1,11 @@
+
+n	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(·¼Øƒøÿÿÿÿ8şå“¤2
+v	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(‚Ò²ö8şå“¤2
+Q
+java:S1068"/Remove this unused "recipeTitle" private field.(ÍÙ³Ôùÿÿÿÿ8“şå“¤2
+I
+java:S1068"'Remove this unused "url" private field.(«Œåùÿÿÿÿ8“şå“¤2
+Q
+java:S1068"/Remove this unused "description" private field.(ÇÓæâıÿÿÿÿ8“şå“¤2
+O
+java:S1068	"-Remove this unused "subtitles" private field.(Ø¿¤ÿÿÿÿÿ8“şå“¤2

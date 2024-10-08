@@ -1,0 +1,5 @@
+
+dpython:S1542"LRename function "toJson" to match the regular expression ^[a-z_][a-z0-9_]*$.(√ÃÀï
+5python:S3626t"Remove this redundant return.(Ÿ„ﬁü
+ipython:S1542"QRename function "PageCrawler" to match the regular expression ^[a-z_][a-z0-9_]*$.(’ﬂ ∏
+lpython:S3776"TRefactor this function to reduce its Cognitive Complexity from 38 to the 15 allowed.(’ﬂ ∏

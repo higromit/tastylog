@@ -1,0 +1,9 @@
+
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Ğ¤ÒÜøÿÿÿÿ
+\	java:S107F"BConstructor has 15 parameters, which is greater than 7 authorized.(ÁÎªûÿÿÿÿ
+m
+java:S6204l"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(ŞÔ¿˜ûÿÿÿÿ
+h
+java:S6204o"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(äÒˆ
+h
+java:S6204r"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(äÒˆ

@@ -7,6 +7,7 @@ import com.RecipeCreator.tastylog.dto.response.recipe.manual.GetRecipesResponse;
 import com.RecipeCreator.tastylog.entity.Recipe;
 import com.RecipeCreator.tastylog.service.recipe.manual.RecipeService;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import io.swagger.v3.oas.annotations.tags.Tags;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
