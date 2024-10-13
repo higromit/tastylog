@@ -46,6 +46,11 @@ public class WebsiteRecipeServiceImpl implements WebsiteRecipeService {
             recipe.setRecipeTitle(recipeTitle);
             recipe.setUrl(url);
 
+            //레시피 설명
+            Element contnetElement = doc.selectFirst(".view2_summary_in");
+            String recipeContent = contnetElement != null ? contnetElement.text() : "";
+            recipe.setRecipeContent(recipeContent);
+
             // 메인 이미지
             Element mainImageElement = doc.selectFirst(".centeredcrop img");
             String mainImage = mainImageElement != null ? mainImageElement.attr("src") : "";
@@ -69,7 +74,7 @@ public class WebsiteRecipeServiceImpl implements WebsiteRecipeService {
 
                 for (Element item : items) {
                     String quantity = item.selectFirst("span").text();
-                    String name = item.text().replace(quantity, "").trim();
+                    String name = item.selectFirst(".ingre_list_name").text();
 
                     if (sectionName.contains("양념")) {
                         RecipeSpice spice = new RecipeSpice();
@@ -90,7 +95,7 @@ public class WebsiteRecipeServiceImpl implements WebsiteRecipeService {
 
             // 조리 순서 및 이미지 크롤링
             Elements stepsElements = doc.select(".view_step .view_step_cont");
-            Elements stepImages = doc.select(".view_step img");
+            Elements stepImages = doc.select(".view_step .view_step_cont img");
             List<RecipeStep> steps = new ArrayList<>();
             for (int i = 0; i < stepsElements.size(); i++) {
                 RecipeStep step = new RecipeStep();
@@ -189,7 +194,7 @@ public class WebsiteRecipeServiceImpl implements WebsiteRecipeService {
 
             // 조리 순서 및 이미지 크롤링
             Elements stepsElements = doc.select(".view_step .view_step_cont");
-            Elements stepImages = doc.select(".view_step img");
+            Elements stepImages = doc.select(".view_step .view_step_cont img");
             List<RecipeStep> steps = new ArrayList<>();
             for (int i = 0; i < stepsElements.size(); i++) {
                 RecipeStep step = new RecipeStep();
