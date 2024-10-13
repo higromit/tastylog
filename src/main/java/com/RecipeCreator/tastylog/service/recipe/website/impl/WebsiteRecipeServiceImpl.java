@@ -51,15 +51,31 @@ public class WebsiteRecipeServiceImpl implements WebsiteRecipeService {
             String recipeContent = contnetElement != null ? contnetElement.text() : "";
             recipe.setRecipeContent(recipeContent);
 
+//            view2_summary_info1
+            // 인원
+            Element amountElement = doc.selectFirst(".view2_summary_info1");
+            String recipeAmount = amountElement != null ? amountElement.text() : "";
+            recipe.setRecipeAmount(recipeAmount);
+
+            // 시간
+            Element timeElement = doc.selectFirst(".view2_summary_info2");
+            String recipeTime = timeElement != null ? timeElement.text() : "";
+            recipe.setRecipeTime(recipeTime);
+
+            // 난이도
+            Element difficultyElement = doc.selectFirst(".view2_summary_info3");
+            String recipeDifficulty = difficultyElement != null ? difficultyElement.text() : "";
+            recipe.setRecipeDifficulty(recipeDifficulty);
+
             // 메인 이미지
             Element mainImageElement = doc.selectFirst(".centeredcrop img");
             String mainImage = mainImageElement != null ? mainImageElement.attr("src") : "";
             recipe.setRecipeMainImage(mainImage);
 
             // 조리 양
-            Element timeInfoElement = doc.selectFirst(".view2_summary_info1");
-            String recipeAmount = timeInfoElement != null ? timeInfoElement.text() : "";
-            recipe.setRecipeAmount(recipeAmount);
+//            Element timeInfoElement = doc.selectFirst(".view2_summary_info1");
+//            String recipeAmount = timeInfoElement != null ? timeInfoElement.text() : "";
+//            recipe.setRecipeAmount(recipeAmount);
 
             // 재료 및 양념 구분 크롤링
             Elements ingredientSections = doc.select(".ready_ingre3 b");
