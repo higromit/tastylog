@@ -1,6 +1,8 @@
 package com.RecipeCreator.tastylog.service.recipe.website.impl;
 
 import com.RecipeCreator.tastylog.entity.*;
+import com.RecipeCreator.tastylog.exception.RecipeErrorCode;
+import com.RecipeCreator.tastylog.exception.RecipeException;
 import com.RecipeCreator.tastylog.repository.recipe.CategoryRepository;
 import com.RecipeCreator.tastylog.repository.recipe.MemberRepository;
 import com.RecipeCreator.tastylog.repository.recipe.RecipeRepository;
@@ -13,6 +15,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,8 +38,14 @@ public class WebsiteRecipeServiceImpl implements WebsiteRecipeService {
 
         Recipe recipe = new Recipe();
         try {
+
+            if (!isValidUrl(url)) {
+                throw new RecipeException(RecipeErrorCode.INVALID_URL.getCode(),
+                        RecipeErrorCode.INVALID_URL.getMessage());
+            }
+
             Member member = memberRepository.findById(memberId)
-                    .orElseThrow(()-> new RuntimeException("Member not found"));
+                    .orElseThrow(()-> new RecipeException(RecipeErrorCode.MEMBER_NOT_FOUND.getCode(), "멤버 정보가 없습니다: "+ memberId));
             recipe.setMember(member);
 
             Document doc = Jsoup.connect(url).get();
@@ -127,8 +137,12 @@ public class WebsiteRecipeServiceImpl implements WebsiteRecipeService {
 
             recipe.setSteps(steps);
 
+        } catch (MalformedURLException e) {
+            throw new RecipeException(RecipeErrorCode.INVALID_URL.getCode(),
+                    "URL 형식이 잘못되었습니다: " + url);
         } catch (IOException e) {
-            e.printStackTrace();
+            throw new RecipeException(RecipeErrorCode.API_RESPONSE_ERROR.getCode(),
+                    RecipeErrorCode.API_RESPONSE_ERROR.getMessage());
         }
         return recipe;
     }
@@ -137,9 +151,13 @@ public class WebsiteRecipeServiceImpl implements WebsiteRecipeService {
 
         Recipe recipe = new Recipe();
         try {
+            if (!isValidUrl(url)) {
+                throw new RecipeException(RecipeErrorCode.INVALID_URL.getCode(),
+                        RecipeErrorCode.INVALID_URL.getMessage());
+            }
 
             Member member = memberRepository.findById(memberId)
-                    .orElseThrow(()-> new RuntimeException("Member not found"));
+                    .orElseThrow(()-> new RecipeException(RecipeErrorCode.MEMBER_NOT_FOUND.getCode(), "멤버 정보가 없습니다: "+ memberId));
             recipe.setMember(member);
 
 
@@ -231,9 +249,22 @@ public class WebsiteRecipeServiceImpl implements WebsiteRecipeService {
             Recipe savedRecipe = recipeRepository.save(recipe);  // DB에 저장하고 저장된 객체를 반환
             return savedRecipe;
 
+        } catch (MalformedURLException e) {
+            throw new RecipeException(RecipeErrorCode.INVALID_URL.getCode(),
+                    "URL 형식이 잘못되었습니다: " + url);
         } catch (IOException e) {
-            e.printStackTrace();
+            throw new RecipeException(RecipeErrorCode.API_RESPONSE_ERROR.getCode(),
+                   "레시피 정보를 가져올 수 없습니다: "+ RecipeErrorCode.API_RESPONSE_ERROR.getMessage());
         }
-        return recipe;
     }
+
+   private boolean isValidUrl(String url){
+        try {
+            new URL(url);
+            return true;
+        }catch (MalformedURLException e){
+            return  false;
+        }
+   }
+
 }

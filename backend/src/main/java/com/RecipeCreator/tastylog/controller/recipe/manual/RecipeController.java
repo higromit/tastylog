@@ -34,20 +34,20 @@ public class RecipeController {
         GetRecipeResponse response = recipeService.getRecipe(id);
         return ResponseEntity.ok(response);
     }
-    @Tag(name = "레시피 생성 API", description = "하나의 레세피를 생성할 수 있는 API입니다")
+    @Tag(name = "레시피 생성 API", description = "하나의 레시피를 생성할 수 있는 API입니다")
     @PostMapping
     public ResponseEntity<Recipe> submitRecipe(@Valid @RequestBody BaseRecipeRequest request){
         Recipe recipe = recipeService.submitRecipe(request);
         return ResponseEntity.status(HttpStatus.CREATED).body(recipe);
     }
-    @Tag(name = "레시피 수정 API", description = "하나의 레세피를 수정할 수 있는 API입니다")
+    @Tag(name = "레시피 수정 API", description = "하나의 레시피를 수정할 수 있는 API입니다")
     @PutMapping("/{id}")
     public ResponseEntity<Recipe> updateRecipe(@PathVariable Long id, @RequestBody BaseRecipeRequest request){
         Recipe updatedRecipe = recipeService.updateRecipe(id, request);
         return ResponseEntity.ok().build();
     }
 
-    @Tag(name = "레시피 삭제 API", description = "하나의 레세피를 삭제할 수 있는 API입니다")
+    @Tag(name = "레시피 삭제 API", description = "하나의 레시피를 삭제할 수 있는 API입니다")
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteRecipe(@PathVariable Long id){
         recipeService.deleteRecipe(id);

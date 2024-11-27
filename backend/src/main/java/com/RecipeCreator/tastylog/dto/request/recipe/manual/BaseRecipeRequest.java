@@ -42,11 +42,11 @@ public class BaseRecipeRequest {
     @JsonProperty("recipeImage")
     private final String recipeImage;
 
-    @NotNull
+    @NotNull(message = "카테고리 ID를 입력해주세요.")
     @JsonProperty("categoryId")
     private final Long categoryId;
 
-    @NotNull
+    @NotNull(message = "회원 ID를 입력해주세요.")
     @JsonProperty("memberId")
     private final Long memberId;
 
