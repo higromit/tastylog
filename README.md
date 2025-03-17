@@ -34,7 +34,7 @@
 
 
 ### ERD
-<img src="https://github.com/higromit/tastylog/blob/main/assets/tastylog_ERD.png">
+<img src="https://github.com/higromit/tastylog/blob/main/assets/tastylog_ERD.png" width="800"/>
 
 
 <br />
