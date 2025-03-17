@@ -15,7 +15,7 @@
 <br />
 
 
-#### "웹사이트에서 레시피 URL을 입력하면 원하는 레시피를 어플리케이션으로 가져와, 자신의 취향에 맞게 수정할 수 있어요!"
+#### "웹사이트에서 레시피 URL을 입력하면 원하는 레시피를 어플리케이션으로 가져와, 자신의 취향에 맞게 수정"
 |레시피 웹사이트에서 가져오기|웹사이트에서 가져온 레시피 모습|
 |:---:|:---:|
 |<img src="https://github.com/higromit/tastylog/blob/main/assets/recipe_input%20UI.jpeg" width="400"/>|<img src="https://github.com/higromit/tastylog/blob/main/assets/recipe_inputUI2.jpeg" width="400"/>|
@@ -23,7 +23,7 @@
 <br />
 
 
-#### "저장한 레시피를 마이크 버튼을 눌러 '다음' 또는 '이전'과 같은 음성 명령으로 레시피 단계를 쉽게 조회할 수 있어요!"
+#### "저장한 레시피를 마이크 버튼을 눌러 '다음' 또는 '이전'과 같은 음성 명령으로 레시피 단계를 쉽게 조회"
 |레시피 조회 이미지(재료)|레시피 조회 이미지(요리단계)|
 |:---:|:---:|
 |<img src="https://github.com/higromit/tastylog/blob/main/assets/recipe_searchUI.jpeg" width="400"/>|<img src="https://github.com/higromit/tastylog/blob/main/assets/recipe_searchUI2.jpeg" width="400"/>|
