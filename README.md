@@ -92,6 +92,6 @@
 <br />
 
 ## 💁‍♂️ 프로젝트 팀원
-|Backend|
-|:---:|
-<a href="https://github.com/higromit"><img src="https://avatars.githubusercontent.com/u/146078058?v=4" width="100px"><br>김수현</a>
+|Backend|Frontend|
+|:---:|:---:|
+<a href="https://github.com/higromit"><img src="https://avatars.githubusercontent.com/u/146078058?v=4" width="100px"><br>김수현</a>|<a href="https://github.com/kimtaejin3"><img src="https://avatars.githubusercontent.com/u/60560836?v=4" width="100px"><br>김태진</a>|
